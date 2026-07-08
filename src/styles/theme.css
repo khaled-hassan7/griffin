@@ -1,0 +1,38 @@
+@theme {
+  /* ========== Neutral ========== */
+  --color-neutral-50: #ffffff;
+  --color-neutral-100: #f8f8f8;
+  --color-neutral-200: #e2e2e2;
+  --color-neutral-300: #c9c9c9;
+  --color-neutral-400: #adadad;
+  --color-neutral-500: #919191;
+  --color-neutral-600: #747474;
+  --color-neutral-700: #565656;
+  --color-neutral-800: #3a3a3a;
+  --color-neutral-900: #1f1f1f;
+  --color-neutral-950: #111111;
+
+  /* ========== Brand ========== */
+  --color-primary: var(--color-neutral-950);
+  --color-primary-hover: var(--color-neutral-800);
+
+  /* ========== Semantic ========== */
+  --color-background: var(--color-neutral-50);
+  --color-surface: var(--color-neutral-100);
+
+  --color-text-primary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-950);
+  --color-text-muted: var(--color-neutral-500);
+
+  --color-border: var(--color-neutral-950);
+
+  /* ========== Feedback ========== */
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-error: #dc2626;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 30px rgb(0 0 0 / 0.12);
+}
