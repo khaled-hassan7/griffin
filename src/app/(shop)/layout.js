@@ -1,3 +1,5 @@
+import Header from "@/components/common/header/Header";
+
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 
@@ -14,7 +16,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`min-h-full flex flex-col ${inter.className}`}>
+      <body className={`min-h-full flex flex-col  m-auto ${inter.className}`}>
+        <Header />
         {children}
       </body>
     </html>
