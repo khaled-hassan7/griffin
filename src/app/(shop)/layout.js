@@ -1,3 +1,4 @@
+import Footer from "@/components/common/header/footer/Footer";
 import Header from "@/components/common/header/Header";
 
 import "@/styles/globals.css";
@@ -16,9 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`min-h-full flex flex-col  m-auto ${inter.className}`}>
+      <body
+        className={`min-h-screen flex flex-col justify-between  m-auto ${inter.className}`}
+      >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
