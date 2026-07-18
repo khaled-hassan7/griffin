@@ -6,13 +6,13 @@ import SearchIcon from "./Search";
 function Header() {
   return (
     <header
-      className="flex justify-between py-5 px-5 border-b border-border 
+      className="absolute top-0 left-0 right-0 z-50 flex justify-between py-5 px-5 border-b border-border text-white
     lg:py-7
       lg:grid 
       lg:grid-cols-[1fr_auto_1fr]
       lg:px-12 items-center lg:border-none "
     >
-      <div className="flex items-center  gap-5 text-text-primary">
+      <div className="flex items-center  gap-5 ">
         <Menu />
         <div className="lg:hidden">
           <SearchIcon />
@@ -21,7 +21,7 @@ function Header() {
 
       <Logo />
 
-      <div className="justify-self-end text-text-primary">
+      <div className="justify-self-end ">
         <HeaderActions />
       </div>
     </header>
