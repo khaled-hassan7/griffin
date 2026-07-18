@@ -4,7 +4,7 @@ const footerLinkClass =
 function FooterSection({ children, title }) {
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-sm text-text-primary font-bold">{title}</h2>
+      <h2 className="text-sm text-text-white font-bold">{title}</h2>
       <ul className="flex flex-col gap-5">{children}</ul>
     </div>
   );
@@ -12,7 +12,7 @@ function FooterSection({ children, title }) {
 
 function FooterTop() {
   return (
-    <div className="flex justify-center mx-auto pt-10 pb-20 gap-5 sm:gap-15 border-t-[0.5] border-border ">
+    <div className="flex justify-center mx-auto pt-10 pb-20 gap-5 sm:gap-15  border-border ">
       <FooterSection title="Help">
         <li className={footerLinkClass}>FAQs</li>
         <li className={footerLinkClass}>Processing a return</li>
