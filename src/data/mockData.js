@@ -378,3 +378,15 @@ export const products = [
   },
 ];
 
+export const productDetaleis = {
+  id: 1,
+  name: "Relaxed Linen Shirt",
+  slug: "relaxed-linen-shirt",
+  description: `Relaxed fit short sleeve T-shirt with Williamsburg graphic and round neck. Made of cotton.
+
+`,
+  images_url: [shirt1, shirt2, shirt3, shirt4],
+  price: 1299,
+  category: "shirts",
+  sizes: ["S", "M", "L", "XL"],
+};

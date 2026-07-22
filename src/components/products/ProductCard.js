@@ -19,7 +19,7 @@ function ProductCard({ product }) {
 
         <div className="grid grid-cols-2 absolute left-0 bottom-2 w-full px-1 opacity-0 group-hover:opacity-100">
           <SizeSelector sizes={sizes} />
-          <AddToCartButton />
+          <AddToCartButton className="h-6 text-xs">add</AddToCartButton>
         </div>
       </div>
 

@@ -1,8 +1,15 @@
-function AddToCartButton() {
+function AddToCartButton({ disabled, className, children, onClick, ...props }) {
   return (
     <div>
-      <button className="font-semibold bg-primary h-6 text-white text-xs  w-full  border-primary border ">
-        Add
+      <button
+        disabled={disabled}
+        onClick={onClick}
+        className={`font-semibold bg-primary  text-white   w-full border-primary border  disabled:opacity-50
+          disabled:cursor-not-allowed ${className}
+          `}
+        {...props}
+      >
+        {children}
       </button>
     </div>
   );
