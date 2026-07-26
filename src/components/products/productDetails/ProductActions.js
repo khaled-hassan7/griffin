@@ -2,9 +2,13 @@
 
 import { useState } from "react";
 import AddToCartButton from "../AddToCartButton";
+import { useCartStore } from "@/components/cart/CartStore";
 
-function ProductActions({ sizes }) {
+function ProductActions({ productDetaleis }) {
+  const { name, price, sizes, images_url, quantity } = productDetaleis;
   const [selectedSize, setSelectedSize] = useState(null);
+  const addToCart = useCartStore((state) => state.addToCart);
+  const openCart = useCartStore((state) => state.openCart);
 
   return (
     <>
@@ -19,7 +23,20 @@ function ProductActions({ sizes }) {
           </button>
         ))}
       </div>
-      <AddToCartButton disabled={!selectedSize} className="py-1.5 text-sm">
+      <AddToCartButton
+        disabled={!selectedSize}
+        className="py-1.5 text-sm"
+        onClick={() => {
+          addToCart({
+            name: name,
+            price: price,
+            size: selectedSize,
+            images_url: images_url[0],
+            quantity: quantity,
+          });
+          openCart();
+        }}
+      >
         {selectedSize ? "ADD TO CART" : "Select Size"}
       </AddToCartButton>
     </>

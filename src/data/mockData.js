@@ -389,4 +389,5 @@ export const productDetaleis = {
   price: 1299,
   category: "shirts",
   sizes: ["S", "M", "L", "XL"],
+  quantity: 1,
 };
