@@ -1,32 +1,38 @@
 "use client";
 import { useState } from "react";
 
-const sizes = ["s", "m", "l", "lg", "xl"];
-
-function SizeSelector() {
-  const [open, setOpen] = useState(false);
+function SizeSelector({ sizes, selectedSize, setSelectedSize }) {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
       className=" relative h-5 font-semibold"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
     >
-      {open && (
+      {isOpen && (
         <ul className="absolute w-full bottom-0 left-0  bg-white  border border-border border-b-0 ">
           {sizes.map((size) => (
-            <li
-              key={size}
-              className="py-1  pl-2 text-xs hover:bg-surface hover:text-primary cursor-pointer "
-            >
-              {size}
+            <li key={size}>
+              <button
+                className="py-1  pl-2 text-xs hover:bg-surface hover:text-primary cursor-pointer w-full text-start "
+                onClick={() => {
+                  setSelectedSize(size);
+                  setIsOpen(false);
+                }}
+              >
+                {size}
+              </button>
             </li>
           ))}
         </ul>
       )}
 
-      <button className="w-full text-xs border border-border bg-white text-start pl-2 h-6 ">
-        Size
+      <button
+        className="w-full text-xs border border-border bg-white text-start pl-2 h-6 "
+        onClick={() => setIsOpen((open) => !open)}
+      >
+        {selectedSize ? selectedSize : "size"}
       </button>
     </div>
   );
