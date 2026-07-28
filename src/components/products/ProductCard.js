@@ -1,11 +1,10 @@
 import Image from "next/image";
-import SizeSelector from "./SizeSelector";
-import AddToCartButton from "./AddToCartButton";
 import Link from "next/link";
 import ProductPurchase from "./ProductPurchase";
 
-function ProductCard({ product }) {
+function ProductCard({ product, category }) {
   const { price, slug, image_url, sizes, name, id } = product;
+
   return (
     <div className=" mb-5 px-1.5 pb-9 group">
       <div className="relative">

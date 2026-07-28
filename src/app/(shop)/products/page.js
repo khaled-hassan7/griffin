@@ -1,11 +1,12 @@
 import CategoryFilter from "@/components/products/CategoryFilter";
 import ProductGrid from "@/components/products/ProductGrid";
 
-function page() {
+async function page({ searchParams }) {
+  const category = (await searchParams).category ?? "all";
   return (
-    <div className="flex flex-col  items-center pt-20 min-h-screen gap-5">
-      <CategoryFilter />
-      <ProductGrid />
+    <div className="flex flex-col  pt-20 min-h-screen gap-5">
+      <CategoryFilter category={category} />
+      <ProductGrid category={category} />
     </div>
   );
 }

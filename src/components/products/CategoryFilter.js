@@ -1,23 +1,19 @@
+import { navigationData } from "@/data/navigationData";
 import Link from "next/link";
 
-function CategoryFilter() {
+function CategoryFilter({ category }) {
   return (
-    <ul className="flex gap-5 pt-7  pb-4 text-sm font- text-primary ">
-      <li>
-        <Link href={"/products/all"} className="font-bold">see all</Link>
-      </li>
-      <li>
-        <Link href={"/products/shirts"}>shirts </Link>
-      </li>
-      <li>
-        <Link href={"/products/t-shirts"}>t-shirts </Link>
-      </li>
-      <li>
-        <Link href={"/products/jeans"}>jeans </Link>
-      </li>
-      <li>
-        <Link href={"/products/hodies"}>hodies </Link>
-      </li>
+    <ul className="flex  gap-5 pt-7  pb-4 px-4 text-sm font- text-primary overflow-x-auto scrollbar-none whitespace-nowrap sm:justify-center">
+      {navigationData.map((item) => (
+        <li key={item.slug} className="shrink-0">
+          <Link
+            href={`/products?category=${item.slug}`}
+            className={category === item.slug ? "font-bold" : ""}
+          >
+            {item.name}
+          </Link>
+        </li>
+      ))}
     </ul>
   );
 }
