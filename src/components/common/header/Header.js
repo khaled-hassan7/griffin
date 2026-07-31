@@ -1,5 +1,5 @@
 import HeaderActions from "./HeaderActions";
-import Logo from "./Logo";
+import Logo from "../../ui/Logo";
 import Menu from "./Menu";
 import SearchIcon from "./Search";
 
