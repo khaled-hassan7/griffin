@@ -9,6 +9,7 @@ const useCheckoutStore = create((set) => ({
     governorate: "",
     furtherInformation: "",
   },
+  paymentMethod: null,
 
   setShippingInfo: (data) =>
     set({
@@ -17,6 +18,10 @@ const useCheckoutStore = create((set) => ({
   resetShippingInfo: () =>
     set({
       shippingInfo: null,
+    }),
+  setPayMentMethod: (method) =>
+    set({
+      paymentMethod: method,
     }),
 }));
 export default useCheckoutStore;

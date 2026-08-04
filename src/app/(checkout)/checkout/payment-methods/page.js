@@ -1,11 +1,7 @@
-import DesktopPaymentMethods from "@/components/checkout/DesktopPaymentMethods";
+import PaymentMethods from "@/components/checkout/PaymentMethods";
 
 function page() {
-  return (
-    <div>
-      <DesktopPaymentMethods />
-    </div>
-  );
+  return <PaymentMethods />;
 }
 
 export default page;

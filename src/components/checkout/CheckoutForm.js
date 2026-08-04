@@ -5,7 +5,6 @@ import useCheckoutStore from "./CheckoutStore";
 import GovernorateSelect from "./GovernorateSelect";
 
 function CheckoutForm() {
-  const shippingInfo = useCheckoutStore((state) => state.shippingInfo);
   const setShippingInfo = useCheckoutStore((state) => state.setShippingInfo);
   const router = useRouter();
 
@@ -13,7 +12,7 @@ function CheckoutForm() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     setShippingInfo(Object.fromEntries(formData));
-    router.push("/checkout/shipping-methods");
+    router.push("/checkout/payment-methods");
   }
 
   return (
@@ -82,11 +81,7 @@ function CheckoutForm() {
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">
-            <button
-              href="#"
-              className="py-3.75 text-white bg-primary"
-              type="submit"
-            >
+            <button className="py-3 text-white bg-primary" type="submit">
               continue
             </button>
           </div>
