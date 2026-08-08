@@ -1,5 +1,7 @@
+import CardDetailsForm from "@/components/checkout/CardDetailsForm";
+
 function page() {
-  return <div>card-details</div>;
+  return <CardDetailsForm />;
 }
 
 export default page;

@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
 const useCheckoutStore = create((set) => ({
-  shippingInfo: {
-    firstName: "",
-    lastName: "",
-    phone: "",
-    address: "",
-    governorate: "",
-    furtherInformation: "",
-  },
+  shippingInfo: null,
   paymentMethod: null,
+  cardInfo: {
+    cardNumber: "",
+    cardHolder: "",
+    month: "",
+    year: "",
+    cvv: "",
+  },
 
   setShippingInfo: (data) =>
     set({
@@ -23,5 +23,12 @@ const useCheckoutStore = create((set) => ({
     set({
       paymentMethod: method,
     }),
+  resetPaymentMethod: () =>
+    set({
+      paymentMethod: null,
+    }),
+
+  setCardInfo: (card) => set({ cardInfo: card }),
+  resetCardInfo: () => set({ cardInfo: null }),
 }));
 export default useCheckoutStore;

@@ -7,7 +7,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Button from "../ui/Button";
 
-function MobileCheckoutSummary({ onContinue }) {
+function MobileCheckoutSummary({ onContinue, lable }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const cart = useCartStore((state) => state.cart);
@@ -39,7 +39,7 @@ function MobileCheckoutSummary({ onContinue }) {
             onContinue();
           }}
         >
-          continue
+          {!lable ? "continue" : lable}
         </button>
       </footer>
       <MobileCheckoutModal isOpen={isOpen} setIsOpen={setIsOpen} />

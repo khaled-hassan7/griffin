@@ -1,7 +1,9 @@
 import { Truck } from "lucide-react";
 import Link from "next/link";
+import useCheckoutStore from "./CheckoutStore";
 
 function DesktopPaymentMethods() {
+  const setPayMentMethod = useCheckoutStore((state) => state.setPayMentMethod);
   return (
     <div className="hidden lg:grid gap-5 w-full  max-h-150  m-auto">
       <h2 className="font-bold">How should we send it?</h2>
@@ -9,6 +11,7 @@ function DesktopPaymentMethods() {
         <Link
           href="/checkout/card-details"
           className="hover:border hover:border-primary border border-border md:border-r-0 "
+          onClick={() => setPayMentMethod("card")}
         >
           <div className="py-15 pl-10">
             <Truck strokeWidth={0.5} className="w-10 h-10" />
@@ -19,8 +22,9 @@ function DesktopPaymentMethods() {
           </div>
         </Link>
         <Link
-          href="/checkout/review"
+          href="/checkout/review-order"
           className="hover:border hover:border-primary border border-border"
+          onClick={() => setPayMentMethod("cash")}
         >
           <div className="py-15 pl-10">
             <Truck strokeWidth={0.5} className="w-10 h-10" />

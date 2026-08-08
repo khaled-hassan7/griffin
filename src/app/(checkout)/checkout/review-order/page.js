@@ -1,5 +1,7 @@
+import ReviewOrder from "@/components/checkout/ReviewOrder";
+
 function page() {
-  return <div>review</div>;
+  return <ReviewOrder/>;
 }
 
 export default page;
