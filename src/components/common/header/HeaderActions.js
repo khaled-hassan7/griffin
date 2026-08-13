@@ -14,10 +14,10 @@ function HeaderActions() {
         <Search />
       </div>
       <button>
-        <User strokeWidth={1} size={24} />
+        <User strokeWidth={1.5} size={24} />
       </button>
       <button onClick={toggleCart} className="relative">
-        <Handbag strokeWidth={1} size={24} />
+        <Handbag strokeWidth={1.5} size={24} />
         <span className=" absolute top-1/3 left-1/2 -translate-x-1/2 text-xs bottom-0 text-error font-semibold">
           {quantity > 0 && quantity}
         </span>

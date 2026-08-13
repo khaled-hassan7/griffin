@@ -6,7 +6,7 @@ function Menu() {
   const openMenu = useNavigation((state) => state.openMenu);
   return (
     <button onClick={openMenu}>
-      <MenuIcon strokeWidth={1} size={24} />
+      <MenuIcon strokeWidth={1.5} size={24} />
     </button>
   );
 }
