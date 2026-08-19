@@ -5,15 +5,9 @@ import shirt4 from "@/assets/images/newArirvals/shirt4.webp";
 import shirt5 from "@/assets/images/newArirvals/shirt5.webp";
 import shirt6 from "@/assets/images/newArirvals/shirt6.webp";
 
-import tshirt1 from "@/assets/images/newArirvals/t-shirt1.webp";
-import tshirt2 from "@/assets/images/newArirvals/t-shirt2.webp";
-import tshirt3 from "@/assets/images/newArirvals/t-shirt3.webp";
-import tshirt4 from "@/assets/images/newArirvals/t-shirt4.webp";
-
 import shirt from "@/assets/images/category/shirt.webp";
 import tShirt from "@/assets/images/category/t-shirt.webp";
 import jeans from "@/assets/images/category/jeans.webp";
-import tShirts from "@/assets/images/category/t-shirts.webp";
 
 import editorialBanner from "@/assets/images/editorial/editorialBanner.webp";
 import editorialproduct1 from "@/assets/images/editorial/editorialproduct1.webp";
@@ -60,12 +54,6 @@ export const categories = [
     slug: "jeans",
     image_url: jeans,
   },
-  {
-    id: 4,
-    name: "Shirts",
-    slug: "shirts",
-    image_url: tShirts,
-  },
 ];
 
 export const newArrivals = [
@@ -104,31 +92,6 @@ export const newArrivals = [
     name: "Shirts",
     slug: "shirts",
     image_url: shirt6,
-  },
-
-  {
-    id: 9,
-    name: "t-shirts",
-    slug: "t-shirts",
-    image_url: tshirt1,
-  },
-  {
-    id: 11,
-    name: "t-shirts",
-    slug: "t-shirts",
-    image_url: tshirt2,
-  },
-  {
-    id: 12,
-    name: "t-shirts",
-    slug: "t-shirts",
-    image_url: tshirt3,
-  },
-  {
-    id: 13,
-    name: "t-shirts",
-    slug: "t-shirts",
-    image_url: tshirt4,
   },
 ];
 

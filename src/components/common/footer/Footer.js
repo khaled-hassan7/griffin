@@ -4,7 +4,10 @@ import FooterTop from "./FooterTop";
 
 function Footer() {
   return (
-    <footer className="bg-primary ">
+    <footer
+      className="bg-primary h-dvh flex flex-col justify-between "
+      id="footer"
+    >
       <FooterTop />
       <FooterMiddle />
       <FooterBottom />

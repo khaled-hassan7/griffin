@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Button from "../ui/Button";
 
 function CategoryCard({ category }) {
   const { name, slug, image_url } = category;

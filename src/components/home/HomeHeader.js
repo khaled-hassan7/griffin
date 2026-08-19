@@ -5,10 +5,12 @@ import { SearchIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { LayoutGroup, motion } from "motion/react";
 import Logo from "../ui/Logo";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 function HomeHeader() {
-  const [onSection, setIsOnSection] = useState(true);
-  const colorIcon = onSection ? "text-white" : "text-primary";
+  const isOnHero = useIntersectionObserver("hero");
+  const isOnFooter = useIntersectionObserver("footer", 0.94);
+  const colorIcon = isOnHero ? "text-white" : "text-primary";
   const [scrolling, setScrolling] = useState(0);
   const isScrolled = scrolling > 80;
 
@@ -24,19 +26,6 @@ function HomeHeader() {
     };
   }, []);
 
-  useEffect(() => {
-    const section = document.getElementById("hero");
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsOnSection(entry.isIntersecting);
-    });
-
-    if (section) {
-      observer.observe(section);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <LayoutGroup>
       <header
@@ -44,7 +33,7 @@ function HomeHeader() {
       lg:py-7
       lg:grid 
       lg:grid-cols-[1fr_auto_1fr]
-      lg:px-12 items-center  `}
+      lg:px-12 items-center transition-opacity duration-300 ease-in-out ${isOnFooter ? "opacity-0" : "opacity-100"} `}
       >
         <div className={`flex items-center gap-5 ${colorIcon}`}>
           <Menu />
@@ -52,7 +41,7 @@ function HomeHeader() {
             <SearchIcon strokeWidth={1.5} size={24} />
           </div>
         </div>
-        <div className="w-17.5">
+        <div className="w-17.5 h-8.5">
           {isScrolled && (
             <motion.div
               layoutId="griffin-id"
@@ -61,7 +50,7 @@ function HomeHeader() {
                 ease: [0.22, 1, 0.36, 1],
               }}
             >
-              <Logo variant={onSection ? "white" : "black"} />
+              <Logo />
             </motion.div>
           )}
         </div>
@@ -79,7 +68,7 @@ function HomeHeader() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <Logo variant={onSection ? "white" : "black"} />
+            <Logo />
           </motion.div>
         )}
       </div>

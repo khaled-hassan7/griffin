@@ -52,7 +52,6 @@ export const useCartStore = create(
       name: "griffin-cart",
       onRehydrateStorage: () => (state) => {
         state?.setHydrated(true);
-        console.log("ddd");
       },
     },
   ),
