@@ -5,7 +5,7 @@ import FooterTop from "./FooterTop";
 function Footer() {
   return (
     <footer
-      className="bg-primary h-dvh flex flex-col justify-between "
+      className="bg-primary h-dvh flex flex-col justify-between items-center "
       id="footer"
     >
       <FooterTop />

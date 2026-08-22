@@ -10,9 +10,9 @@ function FooterSection({ children, title }) {
   );
 }
 
-function FooterTop() {
+function FooterMiddle() {
   return (
-    <div className="flex justify-center mx-auto pt-10 pb-20 gap-5 sm:gap-15  border-border ">
+    <div className="flex justify-center mx-auto py-10  gap-5 sm:gap-15  border-border ">
       <FooterSection title="Help">
         <li className={footerLinkClass}>FAQs</li>
         <li className={footerLinkClass}>Processing a return</li>
@@ -26,12 +26,9 @@ function FooterTop() {
         <li className={footerLinkClass}>Tiktok</li>
         <li className={footerLinkClass}>Instagram</li>
         <li className={footerLinkClass}>Facebook</li>
-        <li className={footerLinkClass}>X</li>
-        <li className={footerLinkClass}>Youtube</li>
-        <li className={footerLinkClass}>Pinterest</li>
       </FooterSection>
     </div>
   );
 }
 
-export default FooterTop;
+export default FooterMiddle;
