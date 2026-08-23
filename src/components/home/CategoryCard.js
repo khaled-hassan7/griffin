@@ -5,7 +5,7 @@ function CategoryCard({ category }) {
   const { name, slug, image_url } = category;
   return (
     <div className="relative ">
-      <Link href={`/products/${slug}`}>
+      <Link href={`/products?category=${slug}`}>
         <Image
           src={image_url}
           alt={name}
@@ -15,7 +15,7 @@ function CategoryCard({ category }) {
         />
       </Link>
       <Link
-        href={`/products/${slug}`}
+        href={`/products?category=${slug}`}
         className="absolute bottom-4 left-4 font-bold text-white text-2xl uppercase tracking-wider  "
       >
         shop {name}

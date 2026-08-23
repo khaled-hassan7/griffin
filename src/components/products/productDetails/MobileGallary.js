@@ -8,8 +8,8 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-function MobileGallery() {
-  const { images_url, name } = productDetaleis;
+function MobileGallery({ product }) {
+  const { images, name } = product;
 
   return (
     <Swiper
@@ -22,7 +22,7 @@ function MobileGallery() {
       }}
       className="w-full"
     >
-      {images_url.map((image, index) => (
+      {images.map((image, index) => (
         <SwiperSlide key={index}>
           <Image
             src={image}

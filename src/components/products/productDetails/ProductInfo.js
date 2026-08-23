@@ -2,8 +2,8 @@ import { productDetaleis } from "@/data/mockData";
 import ProductActions from "./ProductActions";
 import ProductAccordion from "./ProductAccordion";
 
-function ProductInfo() {
-  const { name, price, description, sizes } = productDetaleis;
+function ProductInfo({ product }) {
+  const { name, price, description, sizes } = product;
 
   return (
     <div className="px-2  md:sticky md:top-28 md:self-start">

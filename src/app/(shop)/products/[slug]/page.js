@@ -1,9 +1,10 @@
 import ProductDetails from "@/components/products/productDetails/ProductDetails";
 
-function page() {
+async function page({ params }) {
+  const { slug } = await params;
   return (
     <div className="pt-20 min-h-screen">
-      <ProductDetails />
+      <ProductDetails slug={slug} />
     </div>
   );
 }
