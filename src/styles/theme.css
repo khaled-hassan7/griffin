@@ -17,14 +17,15 @@
   --color-primary-hover: var(--color-neutral-800);
 
   /* ========== Semantic ========== */
-  --color-background: var(--color-neutral-50);
+  --color-white: var(--color-neutral-50);
   --color-surface: var(--color-neutral-100);
 
   --color-text-primary: var(--color-neutral-950);
-  --color-text-secondary: var(--color-neutral-950);
+  --color-text-secondary: var(--color-neutral-800);
   --color-text-muted: var(--color-neutral-500);
+  --color-text-white: var(--color-neutral-50);
 
-  --color-border: var(--color-neutral-950);
+  --color-border: var(--color-neutral-300);
 
   /* ========== Feedback ========== */
   --color-success: #16a34a;
@@ -35,4 +36,52 @@
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 12px rgb(0 0 0 / 0.08);
   --shadow-lg: 0 10px 30px rgb(0 0 0 / 0.12);
+
+  /* ========== Typography ========== */
+
+  --text-categoryHeading: 1.5rem;
+  --text-categoryHeading--line-height: 1;
+  --text-categoryHeading--letter-spacing: 0.05em;
+
+  --text-filterLabel: 0.875rem;
+  --text-filterLabel--line-height: 1.4;
+
+  --text-productTitle: 0.875rem;
+  --text-productTitle--line-height: 1.4;
+
+  --text-price: 0.875rem;
+  --text-price--line-height: 1.4;
+
+  --text-productMeta: 0.875rem;
+  --text-productMeta--line-height: 1.4;
+
+  --text-addToCart: 0.75rem;
+  --text-addToCart--line-height: 1.4;
+
+  --text-summaryLabel: 0.875rem;
+  --text-summaryLabel--line-height: 1.4;
+
+  --text-cartRemove: 0.875rem;
+  --text-cartRemove--line-height: 1.4;
+
+  --text-formHeading: 1rem;
+  --text-formHeading--line-height: 1.4;
+
+  --text-formInput: 0.875rem;
+  --text-formInput--line-height: 1.4;
+
+  --text-bodySmall: 0.75rem;
+  --text-bodySmall--line-height: 1.4;
+
+  --text-footerHeading: 0.875rem;
+  --text-footerHeading--line-height: 1.4;
+
+  --text-footerLink: 0.75rem;
+  --text-footerLink--line-height: 1.6;
+
+  --text-emptyState: 1rem;
+  --text-emptyState--line-height: 1.4;
+
+  --text-button: 0.875rem;
+  --text-button--letter-spacing: 0.02em;
 }

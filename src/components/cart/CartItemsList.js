@@ -7,15 +7,15 @@ function CartItemsList({ item }) {
   return (
     <li className="flex justify-between  border-t border-text-muted py-3">
       <div className="flex flex-col justi justify-center ">
-        <h2 className=" text-text-muted pb-3">{name}</h2>
+        <h2 className=" text-text-muted pb-3 text-productTitle">{name}</h2>
 
-        <span className="text-">size {size}</span>
-        <span>
+        <span className="text-productMeta">size {size}</span>
+        <span className="text-price">
           {price.toLocaleString()} le {"\u00D7"} {quantity}
         </span>
         <button
           onClick={() => deleteItem(id)}
-          className="text-start pt-8 text-text-muted  border-b w-fit uppercase"
+          className="text-cartRemove text-start pt-8 text-text-muted  border-b w-fit uppercase"
         >
           remove
         </button>

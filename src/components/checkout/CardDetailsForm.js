@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import Input from "../ui/Input";
 import useCheckoutStore from "./CheckoutStore";
+import Button from "../ui/Button";
 
 function CardDetailsForm() {
   const setCardInfo = useCheckoutStore((state) => state.setCardInfo);
@@ -17,7 +18,7 @@ function CardDetailsForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="font-bold pb-2">Card Details</h2>
+      <h2 className="text-formHeading font-bold pb-2">Card Details</h2>
       <div className="grid grid-cols-1 gap-5">
         <div className="grid grid-cols-1  gap-5 lg:grid-cols-2">
           <Input
@@ -74,9 +75,9 @@ function CardDetailsForm() {
           />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          <button className="py-3 text-white bg-primary" type="submit">
+          <Button className=" text-white bg-primary" type="submit">
             continue
-          </button>
+          </Button>
         </div>
       </div>
     </form>

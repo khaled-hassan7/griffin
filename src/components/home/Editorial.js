@@ -33,7 +33,7 @@ function Editorial() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-1 mt-5 justify-between pb-6">
         <div className=" lg:col-start-2">
-          <p className="max-w-md text-xs ">{description}</p>
+          <p className="max-w-md text-bodySmall ">{description}</p>
 
           <div className="pt-6">
             <Button href={`/products?collection=${slug}`}>

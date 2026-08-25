@@ -16,7 +16,7 @@ function CategoryCard({ category }) {
       </Link>
       <Link
         href={`/products?category=${slug}`}
-        className="absolute bottom-4 left-4 font-bold text-white text-2xl uppercase tracking-wider  "
+        className="absolute bottom-4 left-4 font-bold text-white text-categoryHeading uppercase"
       >
         shop {name}
       </Link>

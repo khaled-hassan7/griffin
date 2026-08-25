@@ -9,7 +9,7 @@ function GovernorateSelect() {
     <div className="relative">
       <select
         id="governorate"
-        className=" w-full px-3 pt-5 pb-1.75 border border-primary text-sm"
+        className=" w-full px-3 pt-5 pb-1.75 border border-primary text-formInput"
         value={selected}
         onChange={(e) => setSelected(e.target.value)}
         required
@@ -24,7 +24,7 @@ function GovernorateSelect() {
       </select>
       <label
         htmlFor="governorate"
-        className={`absolute transition-all ease-out text-text-muted ${selected === "" ? "top-4 text-sm left-3" : "left-3 top-1.75 text-xs"}`}
+        className={`absolute transition-all ease-out text-text-muted ${selected === "" ? "top-4 text-formInput left-3" : "left-3 top-1.75 text-xs"}`}
       >
         governorate
       </label>

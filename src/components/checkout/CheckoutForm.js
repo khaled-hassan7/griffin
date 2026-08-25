@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import Input from "../ui/Input";
 import useCheckoutStore from "./CheckoutStore";
 import GovernorateSelect from "./GovernorateSelect";
+import Button from "../ui/Button";
 
 function CheckoutForm() {
   const setShippingInfo = useCheckoutStore((state) => state.setShippingInfo);
@@ -22,7 +23,7 @@ function CheckoutForm() {
     >
       <div>
         <section>
-          <h2 className="pb-2 font-bold">Personal details</h2>
+          <h2 className="text-formHeading  pb-2 font-bold">Personal details</h2>
           <div className="grid  gap-5 pb-5 lg:grid-cols-2">
             <Input
               label="first name"
@@ -45,7 +46,7 @@ function CheckoutForm() {
         </section>
 
         <section className="pt-5">
-          <h2 className="py-2 font-bold">Delivery details</h2>
+          <h2 className=" text-formHeading py-2 font-bold">Delivery details</h2>
           <div className="grid gap-5 pb-5 md:grid-cols-2">
             <Input
               label="address"
@@ -70,7 +71,7 @@ function CheckoutForm() {
         </section>
 
         <footer>
-          <div className="text-xs pb-5 ">
+          <div className="text-bodySmall pb-5 ">
             <p className="pb-5">
               Fields marked with an asterisk are mandatory.
             </p>
@@ -81,9 +82,9 @@ function CheckoutForm() {
             </p>
           </div>
           <div className="grid gap-5 lg:grid-cols-2">
-            <button className="py-3 text-white bg-primary" type="submit">
+            <Button className="text-white bg-primary" type="submit">
               continue
-            </button>
+            </Button>
           </div>
         </footer>
       </div>

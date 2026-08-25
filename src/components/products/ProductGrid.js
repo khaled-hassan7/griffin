@@ -9,15 +9,18 @@ function ProductGrid({ category }) {
       ? products
       : products.filter((product) => product.category === category);
 
-  if (filteredData.length === 0) return <EmptyProducts />;
   return (
     <>
       <CategoryFilter category={category} />
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 ">
-        {filteredData.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
-      </div>
+      {filteredData.length === 0 ? (
+        <EmptyProducts />
+      ) : (
+        <div className="grid grid-cols-2 gap-2 md:grid-cols-4">
+          {filteredData.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))}
+        </div>
+      )}
     </>
   );
 }

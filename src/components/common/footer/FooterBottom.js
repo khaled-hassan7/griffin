@@ -3,7 +3,7 @@ const footerLinkClass =
 
 function FooterBottom() {
   return (
-    <ul className="flex items-center justify-center gap-x-4 gap-y-2 text-xs text-text-muted border-t-[0.5] border-border py-4 mx-auto w-full flex-wrap ">
+    <ul className="flex items-center justify-center gap-x-4 gap-y-2 text-footerLink text-text-muted border-t-[0.5] border-border py-4 mx-auto w-full flex-wrap ">
       <li className={footerLinkClass}> Cookie preferences</li>
       <li className={footerLinkClass}>Privacy policy</li>
       <li className={footerLinkClass}>Purchase conditions</li>

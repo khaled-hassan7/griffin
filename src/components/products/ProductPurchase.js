@@ -12,7 +12,7 @@ function ProductPurchase({ product }) {
   const { price, images_url, name, id, quantity } = productDetaleis;
 
   return (
-    <div className="grid grid-cols-2 absolute left-0 bottom-2 w-full px-1 opacity-0 group-hover:opacity-100">
+    <div className="grid grid-cols-2 text-addToCart absolute left-0 bottom-2 w-full px-1  opacity-0 group-hover:opacity-100">
       <SizeSelector
         sizes={sizes}
         selectedSize={selectedSize}
@@ -20,7 +20,7 @@ function ProductPurchase({ product }) {
       />
       <AddToCartButton
         disabled={!selectedSize}
-        className="h-6 text-xs"
+        className="h-6.5"
         onClick={() => {
           addToCart({
             price: price,

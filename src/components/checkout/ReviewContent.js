@@ -2,6 +2,7 @@
 import Link from "next/link";
 import useCheckoutStore from "./CheckoutStore";
 import { BanknoteCheck, House, PenLine } from "lucide-react";
+import Button from "../ui/Button";
 
 function ReviewContent({ handlePlaceOrder }) {
   const { firstName, lastName, address } = useCheckoutStore(
@@ -44,12 +45,12 @@ function ReviewContent({ handlePlaceOrder }) {
           <PenLine className="w-5 h-5 lg:w-6 lg:h-6" strokeWidth={1.5} />
         </Link>
       </section>
-      <button
+      <Button
         className="hidden lg:block py-3 text-white bg-primary w-full mt-5"
         onClick={handlePlaceOrder}
       >
         Place Order
-      </button>
+      </Button>
     </div>
   );
 }

@@ -32,7 +32,7 @@ function MobileCheckoutSummary({ onContinue, lable }) {
             </div>
           </div>
         </div>
-        <button
+        <Button
           className="block text-center text-white bg-primary w-full p-3 mt-2"
           onClick={(e) => {
             e.stopPropagation();
@@ -40,7 +40,7 @@ function MobileCheckoutSummary({ onContinue, lable }) {
           }}
         >
           {!lable ? "continue" : lable}
-        </button>
+        </Button>
       </footer>
       <MobileCheckoutModal isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>

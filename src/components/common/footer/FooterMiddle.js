@@ -1,10 +1,10 @@
 const footerLinkClass =
-  "text-text-muted transition-colors  hover:text-primary cursor-pointer text-xs ";
+  "text-text-muted transition-colors  hover:text-primary cursor-pointer text-footerLink ";
 
 function FooterSection({ children, title }) {
   return (
     <div className="flex flex-col gap-5">
-      <h2 className="text-sm text-text-white font-bold">{title}</h2>
+      <h2 className="text-footerHeading text-text-white font-bold">{title}</h2>
       <ul className="flex flex-col gap-5">{children}</ul>
     </div>
   );

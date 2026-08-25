@@ -1,3 +1,5 @@
+import Button from "../ui/Button";
+
 function SuccsessContent({ handleContinueShopping }) {
   return (
     <div className="flex flex-col justify-center items-center gap-2">
@@ -7,12 +9,12 @@ function SuccsessContent({ handleContinueShopping }) {
       <span className="text-sm">
         We&apos;ll email you when your order is on its way.
       </span>
-      <button
-        className="hidden lg:block w-40 bg-primary py-2 text-white "
+      <Button
+        className="hidden lg:block bg-primary  text-white "
         onClick={handleContinueShopping}
       >
         continue shopping
-      </button>
+      </Button>
     </div>
   );
 }

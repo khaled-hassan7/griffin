@@ -13,9 +13,9 @@ function DesktopCheckoutSummary() {
           <SummaryList key={item.id} item={item} />
         ))}
       </ul>
-      <footer className=" font-bold p-5 border-t border-primary">
+      <footer className="text-summaryLabel font-bold p-5 border-t border-primary">
         <div className="flex justify-between">
-          <span>Total</span>
+          <span>TOTAL</span>
           <span>EGP {totalPrice.toLocaleString()}</span>
         </div>
         <span className="text-[10px] text-text-muted">Including VAT</span>

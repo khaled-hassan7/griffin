@@ -5,7 +5,7 @@ function CartFooter({ cart, closeCart }) {
 
   return (
     <div className="px-4 pb-4 bg-white font-bold border-t border-text-muted">
-      <div className="py-4  ">
+      <div className="py-4 text-summaryLabel">
         <div className="flex justify-between">
           <span>sales tax</span>
           <span>icluded</span>
@@ -17,7 +17,7 @@ function CartFooter({ cart, closeCart }) {
       </div>
       <Button
         href="/checkout"
-        className="w-full h-9 bg-primary text-white "
+        className="w-full  bg-primary text-white"
         onClick={closeCart}
       >
         check out
