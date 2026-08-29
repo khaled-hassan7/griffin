@@ -8,7 +8,7 @@ function Editorial() {
   const { name, slug, heroImage, description, products } = ss26Campaign;
   return (
     <div className=" pt-12 px-1 pb-12 md:pb-24 md:pt-24  ">
-      <h2 className="text-primary font-bold text-6xl  px-5">{name}</h2>
+      <h2 className="text-primary font-bold px-5 text-4xl md:text-6xl">{name}</h2>
 
       <div className="grid lg:grid-cols-2 gap-1 items-start pt-12 ">
         <Link

@@ -6,7 +6,7 @@ import EmptyProducts from "./EmptyProducts";
 function ProductCard({ product }) {
   const { price, slug, images, sizes, name, id } = product;
   return (
-    <div className=" mb-5 px-1.5 pb-9 group">
+    <div className=" px-1 pb-9 group">
       <div className="relative">
         <Link href={`/products/${slug}`}>
           <Image

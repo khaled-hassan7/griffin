@@ -19,7 +19,7 @@ function CartModal() {
       className={`fixed bg-black/50 inset-0 z-60 uppercase text-sm transition-opacity duration-300 ${isOpen ? "opacity-100  pointer-events-auto" : "opacity-0  pointer-events-none"}`}
     >
       <div
-        className={`fixed bg-surface top-0 right-0 bottom-0 w-9/10 md:w-8/10 lg:top-8 lg:bottom-8  lg:right-8 lg:w-95     ease-[cubic-bezier(0.22,1,0.36,1)] transition-transform duration-300 ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"}`}
+        className={`fixed bg-white top-0 right-0 bottom-0 w-9/10 md:w-8/10 lg:top-8 lg:bottom-8  lg:right-8 lg:w-95     ease-[cubic-bezier(0.22,1,0.36,1)] transition-transform duration-300 ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full"}`}
         ref={ref}
       >
         <div className="h-full w-full flex flex-col">
