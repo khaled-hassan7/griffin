@@ -1,12 +1,11 @@
 "use client";
 
 import Logo from "@/components/ui/Logo";
-import { getCollectionProducts } from "@/data/helpers";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-function FooterTop() {
+function FooterTop({ newArrivalsCollection }) {
   const [index, setIndex] = useState({ x: 0, y: 0 });
   const [images, setImages] = useState([]);
 
@@ -14,9 +13,8 @@ function FooterTop() {
   const lastPosition = useRef({ x: 0, y: 0 });
   const imageIndex = useRef(0);
 
-
-  const newArrivalsCollection = getCollectionProducts("new-arrivals");
-  const products = newArrivalsCollection?.products ?? []; 
+  const products = newArrivalsCollection?.images ?? [];
+  console.log("products", products);
 
   useEffect(() => {
     let inimationFrame;
@@ -27,6 +25,7 @@ function FooterTop() {
       inimationFrame = requestAnimationFrame(() => {
         const rect = footerRef.current.getBoundingClientRect();
         const currentImage = products[imageIndex.current];
+        if (!currentImage) return;
 
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -48,7 +47,7 @@ function FooterTop() {
           ...prev,
           {
             id,
-            src: currentImage.images[0],
+            src: currentImage,
             x,
             y,
           },
@@ -69,7 +68,7 @@ function FooterTop() {
 
       cancelAnimationFrame(inimationFrame);
     };
-  }, []);
+  }, [products]);
 
   return (
     <div
@@ -102,7 +101,13 @@ function FooterTop() {
               transform: "translate(-50%, -50%)",
             }}
           >
-            <Image src={image.src} alt="" className="absolute w-full h-auto " />
+            <Image
+              width={1200}
+              height={1800}
+              src={image.src}
+              alt=""
+              className="absolute w-full h-auto "
+            />
           </motion.div>
         ))}
       </AnimatePresence>

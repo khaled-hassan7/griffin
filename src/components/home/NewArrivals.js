@@ -1,19 +1,27 @@
 import NewArrivalsCard from "./NewArrivalsCard";
 import Button from "../ui/Button";
-import { getCollectionProducts } from "@/data/helpers";
-function NewArrivals() {
-  const ss26Campaign = getCollectionProducts("new-arrivals");
-  const { slug, products } = ss26Campaign;
+import { getCollections } from "@/data/collections";
+async function NewArrivals() {
+  const newArrivalsCollection = await getCollections("new-arrivals");
+  const { slug, images } = newArrivalsCollection;
 
   return (
     <div className="lg:pb-24 pb-12">
       <div className=" overflow-hidden pt-12">
         <div className="flex animate-marquee w-max">
-          {products.map((product) => (
-            <NewArrivalsCard key={product.id} product={product} />
+          {images.map((image, index) => (
+            <NewArrivalsCard
+              key={index}
+              image={image}
+              slug={`${slug}-${index}`}
+            />
           ))}
-          {products.map((product) => (
-            <NewArrivalsCard key={`copy-${product.id}`} product={product} />
+          {images.map((image, index) => (
+            <NewArrivalsCard
+              key={`copy-${index}`}
+              image={image}
+              slug={`${slug}-${index}-copy`}
+            />
           ))}
         </div>
       </div>

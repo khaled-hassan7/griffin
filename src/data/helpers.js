@@ -1,7 +1,8 @@
-import { products } from "./mockData";
 import { collections } from "./mockData";
+import { getAllProducts } from "./products";
 
-export function getCollectionProducts(collectionSlug) {
+export async function getCollectionProducts(collectionSlug) {
+  const products = await getAllProducts();
   const collection = Object.values(collections).find(
     (c) => c.slug === collectionSlug,
   );

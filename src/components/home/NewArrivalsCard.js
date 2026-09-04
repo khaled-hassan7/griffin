@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-function NewArrivalsCard({ product }) {
-  const { images, name } = product;
-
+function NewArrivalsCard({ slug, image }) {
   return (
     <div className=" shrink-0 w-[50vw]  md:w-110 ">
       <Image
-        src={images[0]}
-        alt={name}
+        src={image}
+        alt={slug}
+        width={1200}
+        height={1800}
         priority={true}
         quality={75}
         className="w-full h-auto "

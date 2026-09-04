@@ -9,8 +9,8 @@ const sizes = ["s", "m", "l", "lg", "xl"];
 function ProductPurchase({ product }) {
   const addToCart = useCartStore((state) => state.addToCart);
   const [selectedSize, setSelectedSize] = useState("");
-  const { price, images_url, name, id, quantity } = productDetaleis;
-
+  const { price, images, name, id } = product;
+  const cartItemId = `${id}-${selectedSize}`;
   return (
     <div className="grid grid-cols-2 text-addToCart absolute left-0 bottom-2 w-full px-1  opacity-0 group-hover:opacity-100">
       <SizeSelector
@@ -23,12 +23,13 @@ function ProductPurchase({ product }) {
         className="h-6.5"
         onClick={() => {
           addToCart({
+            cartItemId,
             price: price,
-            images_url: images_url[0],
+            images_url: images[1],
             size: selectedSize,
             name: name,
             id: id,
-            quantity: quantity,
+            quantity: 1,
           });
           setSelectedSize("");
         }}

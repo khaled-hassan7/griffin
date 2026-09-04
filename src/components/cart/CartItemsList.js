@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useCartStore } from "./CartStore";
 
 function CartItemsList({ item }) {
-  const { name, price, description, size, images_url, id, quantity } = item;
+  const { name, price, description, size, images_url, id, quantity ,cartItemId } = item;
   const deleteItem = useCartStore((state) => state.deleteFromCart);
   return (
     <li className="flex justify-between  border-t border-text-muted py-3">
@@ -14,13 +14,13 @@ function CartItemsList({ item }) {
           {price.toLocaleString()} le {"\u00D7"} {quantity}
         </span>
         <button
-          onClick={() => deleteItem(id)}
+          onClick={() => deleteItem(cartItemId)}
           className="text-cartRemove text-start pt-8 text-text-muted  border-b w-fit uppercase"
         >
           remove
         </button>
       </div>
-      <Image alt={name} className=" w-30" src={images_url} />
+      <Image alt={name} width={1200} height={1800} className="w-30" src={images_url} />
     </li>
   );
 }

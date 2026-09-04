@@ -1,6 +1,5 @@
 "use client";
 
-import { productDetaleis } from "@/data/mockData";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -25,6 +24,8 @@ function MobileGallery({ product }) {
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <Image
+            width={1125}
+            height={1688}
             src={image}
             alt={name}
             priority={index === 0}

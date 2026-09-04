@@ -12,7 +12,7 @@ function ProductInfo({ product }) {
         <span className="text-xl">EGP {price}</span>
         <p className="text-text-muted leading-7">{description}</p>
 
-        <ProductActions productDetaleis={productDetaleis} />
+        <ProductActions productDetaleis={product} />
         <ProductAccordion title="Materials & Care">
           <ul className="space-y-1 overflow-hidden">
             <li>Machine wash cold (30°C)</li>

@@ -1,9 +1,10 @@
-import { products } from "@/data/mockData";
 import ProductCard from "./ProductCard";
 import EmptyProducts from "./EmptyProducts";
 import CategoryFilter from "./CategoryFilter";
+import { getAllProducts } from "@/data/products";
 
-function ProductGrid({ category }) {
+async function ProductGrid({ category }) {
+  const products = await getAllProducts();
   const filteredData =
     category === "all"
       ? products

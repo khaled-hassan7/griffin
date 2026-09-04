@@ -6,7 +6,7 @@ function CartContent({ cart }) {
     <div className="pt-10  border-b border-text-muted mb-8">
       <ul>
         {cart.map((item) => (
-          <CartItemsList key={item.id} item={item} />
+          <CartItemsList key={item.cartItemId} item={item} />
         ))}
       </ul>
     </div>

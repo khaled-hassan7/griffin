@@ -1,16 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function EditorialCard({ product }) {
-  const { name, slug, images } = product;
+function EditorialCard({ image, slug }) {
   return (
     <div className="gap-2">
       <Link href={`/products?collection=${slug}`}>
         <Image
-          src={images[0]}
-          alt={name}
+          src={image}
+          alt={slug}
           quality={75}
-          className="w-full h-auto "
+          width={1200}
+          height={1800}
         />
       </Link>
     </div>
