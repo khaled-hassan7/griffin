@@ -1,5 +1,5 @@
 const footerLinkClass =
-  "text-text-muted transition-colors  hover:text-primary cursor-pointer text-footerLink ";
+  "text-text-muted transition-colors  hover:text-white cursor-pointer text-footerLink ";
 
 function FooterSection({ children, title }) {
   return (

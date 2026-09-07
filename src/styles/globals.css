@@ -13,7 +13,7 @@
 }
 
 html {
-  scrollbar-gutter:auto;
+  scrollbar-gutter: auto;
 }
 
 body {
@@ -51,4 +51,15 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset;
   box-shadow: 0 0 0 1000px white inset;
   transition: background-color 5000s ease-in-out 0s;
+}
+
+.product-card {
+  transform: translateY(10px);
+  animation: productReveal 0.4s ease-out forwards;
+}
+
+@keyframes productReveal {
+  to {
+    transform: translateY(0);
+  }
 }

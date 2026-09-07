@@ -1,5 +1,5 @@
 const footerLinkClass =
-  "transition-colors hover:text-primary cursor-pointer relative pr-4   last:pr-0 after:absolute after:right-0 after:top-1/2 after:h-3 after:w-0.5 after:-translate-y-1/2 after:bg-neutral-200 last:after:hidden";
+  "transition-colors hover:text-white cursor-pointer relative pr-4   last:pr-0 after:absolute after:right-0 after:top-1/2 after:h-3 after:w-0.5 after:-translate-y-1/2 after:bg-neutral-200 last:after:hidden";
 
 function FooterBottom() {
   return (
