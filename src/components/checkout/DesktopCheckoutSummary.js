@@ -4,7 +4,7 @@ import SummaryList from "./SummaryList";
 
 function DesktopCheckoutSummary() {
   const cart = useCartStore((state) => state.cart);
-  const totalPrice = cart.reduce((total, price) => total + price.price, 0);
+  const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity , 0);
   return (
     <div className=" hidden lg:flex flex-col  w-93  border border-primary  ">
       <header className="font-bold p-5 ">Purchase summary</header>

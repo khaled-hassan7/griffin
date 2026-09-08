@@ -26,6 +26,31 @@ export const useCartStore = create(
           }
           return { cart: [...state.cart, item] };
         }),
+      increaseQuantity: (cartItemId) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.cartItemId === cartItemId && item.quantity < item.stock
+              ? {
+                  ...item,
+                  quantity: item.quantity + 1,
+                }
+              : item,
+          ),
+        })),
+
+      decreaseQuantity: (cartItemId) =>
+        set((state) => ({
+          cart: state.cart
+            .map((item) =>
+              item.cartItemId === cartItemId
+                ? {
+                    ...item,
+                    quantity: item.quantity - 1,
+                  }
+                : item,
+            )
+            .filter((item) => item.quantity > 0),
+        })),
 
       deleteFromCart: (cartItemId) =>
         set((state) => ({

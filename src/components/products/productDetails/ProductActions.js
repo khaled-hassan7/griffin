@@ -5,7 +5,7 @@ import AddToCartButton from "../AddToCartButton";
 import { useCartStore } from "@/components/cart/CartStore";
 
 function ProductActions({ productDetaleis }) {
-  const { name, price, sizes, images, id } = productDetaleis;
+  const { name, price, sizes, images, id ,stock } = productDetaleis;
   const [selectedSize, setSelectedSize] = useState(null);
   const addToCart = useCartStore((state) => state.addToCart);
   const openCart = useCartStore((state) => state.openCart);
@@ -36,6 +36,7 @@ function ProductActions({ productDetaleis }) {
             quantity: 1,
             id: id,
             cartItemId,
+            stock,
           });
           openCart();
         }}
