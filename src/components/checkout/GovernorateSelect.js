@@ -8,6 +8,7 @@ function GovernorateSelect() {
   return (
     <div className="relative">
       <select
+        name="governorate"
         id="governorate"
         className=" w-full px-3 pt-5 pb-1.75 border border-primary text-formInput"
         value={selected}

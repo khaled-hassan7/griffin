@@ -4,7 +4,7 @@ import useCheckoutStore from "./CheckoutStore";
 import { BanknoteCheck, House, PenLine } from "lucide-react";
 import Button from "../ui/Button";
 
-function ReviewContent({ handlePlaceOrder }) {
+function ReviewContent({ handlePlaceOrder, isPending }) {
   const { firstName, lastName, address } = useCheckoutStore(
     (state) => state.shippingInfo,
   );
@@ -48,8 +48,9 @@ function ReviewContent({ handlePlaceOrder }) {
       <Button
         className="hidden lg:block py-3 text-white bg-primary w-full mt-5"
         onClick={handlePlaceOrder}
+        disabled={isPending}
       >
-        Place Order
+        {isPending ? "Placing order..." : "Place order"}
       </Button>
     </div>
   );

@@ -14,7 +14,7 @@ function SummaryList({ item }) {
       <div className="flex flex-col  ">
         <h2 className="text-productTitle pb-3">{name}</h2>
         <span className="text-price">
-          {(price * quantity).toLocaleString()}LE
+          {(price * quantity).toLocaleString()} LE
         </span>
         <span className="text-text-muted text-productMeta">size: {size}</span>
         <span className="text-text-muted text-productMeta">

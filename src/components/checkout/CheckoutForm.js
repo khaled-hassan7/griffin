@@ -41,7 +41,14 @@ function CheckoutForm() {
             />
           </div>
           <div className="grid grid-cols-2 gap-5">
-            <Input label="phone" name="phone" id="phone" type="tel" />
+            <Input
+              label="phone"
+              name="phone"
+              id="phone"
+              type="tel"
+              inputmode="numeric"
+              pattern="[0-9]*"
+            />
           </div>
         </section>
 
