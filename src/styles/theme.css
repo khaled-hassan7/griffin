@@ -25,7 +25,7 @@
   --color-text-muted: var(--color-neutral-500);
   --color-text-white: var(--color-neutral-50);
 
-  --color-border: var(--color-neutral-300);
+  --color-border: var(--color-neutral-500);
 
   /* ========== Feedback ========== */
   --color-success: #16a34a;
