@@ -3,7 +3,6 @@ import { useState } from "react";
 import AddToCartButton from "./AddToCartButton";
 import SizeSelector from "./SizeSelector";
 import { useCartStore } from "../cart/CartStore";
-import { productDetaleis } from "@/data/mockData";
 const sizes = ["s", "m", "l", "lg", "xl"];
 
 function ProductPurchase({ product }) {

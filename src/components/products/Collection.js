@@ -1,6 +1,5 @@
 import { getProduct } from "@/data/products";
 import ProductCard from "./ProductCard";
-import { getCollectionProducts } from "@/data/helpers";
 
 async function Collection({ collection }) {
   const filteredCollection = await getProduct(collection);

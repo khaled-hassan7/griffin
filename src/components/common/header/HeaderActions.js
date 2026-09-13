@@ -7,7 +7,6 @@ function HeaderActions() {
   const toggleCart = useCartStore((state) => state.toggleCart);
   const cart = useCartStore((state) => state.cart);
   const quantity = cart.reduce((total, item) => total + item.quantity, 0);
-  console.log(cart);
   return (
     <div className="flex gap-5">
       <div className="hidden lg:block">

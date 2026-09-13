@@ -13,7 +13,6 @@ function CheckoutGuard({ children }) {
   const isHydrated = useCartStore((state) => state.isHydrated);
 
   const shippingInfo = useCheckoutStore((state) => state.shippingInfo);
-  console.log(shippingInfo)
   const paymentMethod = useCheckoutStore((state) => state.paymentMethod);
   const cardInfo = useCheckoutStore((state) => state.cardInfo);
 

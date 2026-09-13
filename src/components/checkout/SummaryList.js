@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 function SummaryList({ item }) {
-  const { name, price, description, size, images_url, id, quantity } = item;
+  const { name, price, size, images_url, quantity } = item;
   return (
     <li className="flex  py-3">
       <Image

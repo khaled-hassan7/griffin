@@ -1,4 +1,3 @@
-import { productDetaleis } from "@/data/mockData";
 import ProductActions from "./ProductActions";
 import ProductAccordion from "./ProductAccordion";
 

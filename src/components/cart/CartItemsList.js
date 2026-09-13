@@ -6,10 +6,8 @@ function CartItemsList({ item }) {
   const {
     name,
     price,
-    description,
-    size,
+     size,
     images_url,
-    id,
     quantity,
     cartItemId,
     stock,
