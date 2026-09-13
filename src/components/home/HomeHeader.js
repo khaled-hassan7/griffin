@@ -11,18 +11,33 @@ function HomeHeader() {
   const isOnHero = useIntersectionObserver("hero");
   const isOnFooter = useIntersectionObserver("footer", 0.94);
   const colorIcon = isOnHero ? "text-white" : "text-primary";
-  const [scrolling, setScrolling] = useState(0);
+  const [scrolling, setIsScrolled] = useState(false);
   const isScrolled = scrolling > 80;
 
   useEffect(() => {
-    function handelScroling() {
-      setScrolling(window.scrollY);
-    }
-    handelScroling();
+    let ticking = false;
 
-    window.addEventListener("scroll", handelScroling);
+    function handleScrolling() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const nextIsScrolled = window.scrollY > 80;
+
+          setIsScrolled((prev) =>
+            prev === nextIsScrolled ? prev : nextIsScrolled,
+          );
+
+          ticking = false;
+        });
+
+        ticking = true;
+      }
+    }
+
+    handleScrolling();
+
+    window.addEventListener("scroll", handleScrolling, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handelScroling);
+      window.removeEventListener("scroll", handleScrolling);
     };
   }, []);
 
@@ -42,7 +57,7 @@ function HomeHeader() {
           </div>
         </div>
         <div className="w-17.5 h-8.5">
-          {isScrolled && (
+          {scrolling && (
             <motion.div
               layoutId="griffin-id"
               transition={{
@@ -60,7 +75,7 @@ function HomeHeader() {
       </header>
 
       <div className="fixed w-[clamp(220px,50vw,700px)] bottom-4 left-1/2 -translate-x-1/2 z-50">
-        {!isScrolled && (
+        {!scrolling && (
           <motion.div
             layoutId="griffin-id"
             transition={{

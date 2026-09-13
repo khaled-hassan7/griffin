@@ -9,7 +9,7 @@ function ProductInfo({ product }) {
     <div className="px-2  md:sticky md:top-28 md:self-start">
       <div className=" flex flex-col justify-end gap-5 pl-  ">
         <h2 className="text-4xl">{name}</h2>
-        <span className="text-xl">EGP {price}</span>
+        <span className="text-xl">EGP {price.toLocaleString()}</span>
         <p className="text-text-muted leading-7">{description}</p>
 
         <ProductActions productDetaleis={product} />

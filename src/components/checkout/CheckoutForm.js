@@ -46,7 +46,7 @@ function CheckoutForm() {
               name="phone"
               id="phone"
               type="tel"
-              inputmode="numeric"
+              inputMode="numeric"
               pattern="[0-9]*"
             />
           </div>

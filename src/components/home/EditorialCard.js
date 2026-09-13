@@ -11,6 +11,7 @@ function EditorialCard({ image, slug }) {
           quality={75}
           width={1200}
           height={1800}
+          sizes="(max-width: 1024px) 50vw, 25vw"
         />
       </Link>
     </div>

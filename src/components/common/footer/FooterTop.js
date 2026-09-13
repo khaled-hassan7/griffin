@@ -14,7 +14,6 @@ function FooterTop({ newArrivalsCollection }) {
   const imageIndex = useRef(0);
 
   const products = newArrivalsCollection?.images ?? [];
-  console.log("products", products);
 
   useEffect(() => {
     let inimationFrame;
@@ -68,7 +67,7 @@ function FooterTop({ newArrivalsCollection }) {
 
       cancelAnimationFrame(inimationFrame);
     };
-  }, [products]);
+  }, []);
 
   return (
     <div

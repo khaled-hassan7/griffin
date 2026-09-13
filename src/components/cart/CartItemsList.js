@@ -21,7 +21,7 @@ function CartItemsList({ item }) {
 
   return (
     <li className="flex gap-4 justify-between border-t border-border py-5">
-      <div className="flex flex-col justify-between py-1">
+      <div className="flex flex-1 flex-col justify-between py-1">
         <div className="flex flex-col gap-2">
           <h3 className="text-primary  text-productTitle font-bold leading-snug">
             {name}

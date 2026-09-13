@@ -8,8 +8,8 @@ function NewArrivalsCard({ slug, image }) {
         alt={slug}
         width={1200}
         height={1800}
-        priority={true}
         quality={75}
+        sizes="(max-width: 1024px) 50vw, 440px"
         className="w-full h-auto "
       />
     </div>

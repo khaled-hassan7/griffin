@@ -6,8 +6,10 @@ function Logo() {
     <Link href="/">
       <Image
         src={logo}
+        priority
+        fetchPriority="high"
         alt="Griffin Logo"
-        className={`w-full h-auto p-0 z-100 }`}
+        className={`w-full h-auto p-0 z-100`}
       />
     </Link>
   );

@@ -1,7 +1,13 @@
-import { supabase } from "@/lib/supabase";
+import "server-only";
+import { createClient } from "@/lib/supabase/server";
 
 export async function getAllProducts() {
-  const { error, data } = await supabase.from("products").select("*");
+  const supabase = await createClient();
+
+  const { error, data } = await supabase
+    .from("products")
+    .select("*")
+    .order("display_order", { ascending: true });
 
   if (error) {
     console.error("Error fetching products:", error);
@@ -12,11 +18,13 @@ export async function getAllProducts() {
 }
 
 export async function getProduct(slug) {
+  const supabase = await createClient();
+
   const { error, data: product } = await supabase
     .from("products")
     .select("*")
     .eq("slug", slug)
-    .single();
+    .maybeSingle();
 
   if (error) {
     console.error("Error fetching product:", error);

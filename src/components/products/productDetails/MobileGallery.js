@@ -27,6 +27,7 @@ function MobileGallery({ product }) {
             width={1125}
             height={1688}
             src={image}
+            sizes="100vw"
             alt={name}
             priority={index === 0}
             className="w-full h-auto"
