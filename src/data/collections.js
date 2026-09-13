@@ -1,6 +1,9 @@
-import { supabase } from "@/lib/supabase";
+import "server-only";
+import { createClient } from "@/lib/supabase/server";
 
-export async function getCollections(slug) {
+export async function getEditorialCollection(slug) {
+  const supabase = await createClient();
+
   const { data: collections, error } = await supabase
     .from("editorial_collections")
     .select("*")
@@ -24,7 +27,7 @@ export async function getCollectionProducts(collectionSlug) {
       products (*)
     `,
     )
-    .eq("slug", collectionSlug)
+    .eq("slug", collectionSlug);
 
   if (error || !collection) return null;
 

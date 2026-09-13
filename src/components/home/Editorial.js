@@ -2,12 +2,11 @@ import Link from "next/link";
 import EditorialCard from "./EditorialCard";
 import Image from "next/image";
 import Button from "../ui/Button";
-import { getCollections } from "@/data/collections";
+import { getEditorialCollection } from "@/data/collections";
 async function Editorial() {
-  const ss26Campaign = await getCollections("ss26");
+  const ss26Campaign = await getEditorialCollection("ss26");
   const { name, slug, heroImage, description, images } = ss26Campaign;
 
-  console.log(images);
   return (
     <div className=" pt-12 px-1 pb-12 md:pb-24 md:pt-24  ">
       <h2 className="text-primary font-bold px-5 text-4xl md:text-6xl">
@@ -24,8 +23,8 @@ async function Editorial() {
             alt={name}
             width={1800}
             height={1800}
-            priority={true}
             quality={75}
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="w-full h-auto "
           />
         </Link>

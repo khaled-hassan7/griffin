@@ -1,8 +1,8 @@
 import NewArrivalsCard from "./NewArrivalsCard";
 import Button from "../ui/Button";
-import { getCollections } from "@/data/collections";
+import { getEditorialCollection } from "@/data/collections";
 async function NewArrivals() {
-  const newArrivalsCollection = await getCollections("new-arrivals");
+  const newArrivalsCollection = await getEditorialCollection("new-arrivals");
   const { slug, images } = newArrivalsCollection;
 
   return (

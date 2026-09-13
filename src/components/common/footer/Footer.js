@@ -2,10 +2,10 @@ import { getCollectionProducts } from "@/data/helpers";
 import FooterBottom from "./FooterBottom";
 import FooterMiddle from "./FooterMiddle";
 import FooterTop from "./FooterTop";
-import { getCollections } from "@/data/collections";
+import { getEditorialCollection } from "@/data/collections";
 
 async function Footer() {
-  const newArrivalsCollection = await getCollections("new-arrivals");
+  const newArrivalsCollection = await getEditorialCollection("new-arrivals");
 
   return (
     <footer
