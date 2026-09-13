@@ -1,7 +1,8 @@
-import { categories } from "@/data/mockData";
 import CategoryCard from "./CategoryCard";
+import { getCategories } from "@/data/categories";
 
-function Categories() {
+async function Categories() {
+  const categories = await getCategories();
   return (
     <div className="grid  grid-cols-1 gap-y-0.5  pb-12 lg:p-2 lg:gap-2 lg:grid-cols-3 ">
       {categories.map((category) => (
