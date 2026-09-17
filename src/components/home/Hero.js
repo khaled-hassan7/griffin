@@ -11,8 +11,9 @@ function Hero() {
         fetchPriority="high"
         fill
         sizes="100vw"
-        className="object-cover object-center"
+        className="object-cover object-[15%]"
       />
+      <div className="absolute inset-x-0 top-0 h-40 bg-linear-to-b from-black/70 to-transparent z-10" />
     </div>
   );
 }
