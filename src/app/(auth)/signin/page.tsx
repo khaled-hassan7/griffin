@@ -2,7 +2,11 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import SignInWithGoogle from "@/components/auth/SignInWithGoogle";
 
-async function page({ searchParams }) {
+async function page({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string; next?: string }>;
+}) {
   const { error, next: rawNext } = await searchParams;
 
   const supabase = await createClient();

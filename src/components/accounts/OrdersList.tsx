@@ -4,9 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import Button from "../ui/Button";
+import type { Order } from "@/types";
 
 // Fixed locale + timeZone so SSR and client render the same string.
-function formatDate(iso) {
+function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "2-digit",
@@ -15,8 +16,8 @@ function formatDate(iso) {
   });
 }
 
-function OrdersList({ orders }) {
-  const [expandedId, setExpandedId] = useState(null);
+function OrdersList({ orders }: { orders: Order[] }) {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
   if (!orders.length) {
     return (
@@ -74,10 +75,10 @@ function OrdersList({ orders }) {
                         <Image
                           src={item.products.images[1]}
                           alt=""
-                          width={80}
-                          height={120}
-                          quality={90}
-                          className="w-20 aspect-[2/3] object-cover"
+                          width={48}
+                          height={72}
+                          quality={75}
+                          className="w-12 aspect-[2/3] object-cover"
                         />
                       ) : (
                         <div className="w-12 aspect-[2/3] bg-surface" />

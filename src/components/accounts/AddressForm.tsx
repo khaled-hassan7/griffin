@@ -1,22 +1,26 @@
 "use client";
 import { useState } from "react";
+import type { FormEvent } from "react";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import { updateAddress } from "@/data/accounts";
+import type { AccountProfile } from "@/types";
 
-function AddressForm({ profile }) {
+type Feedback = { type: "error" | "success"; message: string };
+
+function AddressForm({ profile }: { profile: AccountProfile | null }) {
   const initial = {
     address: profile?.address ?? "",
     city: profile?.city ?? "",
   };
   const [address, setAddress] = useState(initial.address);
   const [city, setCity] = useState(initial.city);
-  const [feedback, setFeedback] = useState(null);
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
   const isDirty = address !== initial.address || city !== initial.city;
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSaving(true);
     setFeedback(null);

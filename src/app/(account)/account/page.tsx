@@ -10,7 +10,7 @@ async function page() {
   ]);
   const { user, profile } = account;
 
-  const fullName = profile?.full_name ?? user.user_metadata?.full_name ?? "";
+  const fullName = profile?.full_name ?? user!.user_metadata?.full_name ?? "";
   const firstName = fullName.split(" ")[0];
 
   return (
@@ -20,7 +20,7 @@ async function page() {
           <h1 className="text-2xl font-bold uppercase tracking-widest">
             Hello {firstName}
           </h1>
-          <p className="text-bodySmall text-text-muted pt-1">{user.email}</p>
+          <p className="text-bodySmall text-text-muted pt-1">{user!.email}</p>
         </div>
         <AccountNavList />
         <SignOutButton />

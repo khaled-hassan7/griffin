@@ -1,17 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import Button from "../ui/Button";
 import SignInWithGoogle from "../auth/SignInWithGoogle";
 import { createClient } from "@/lib/supabase/client";
 import { useCartStore } from "./CartStore";
 
-function CartFooter({ cart, closeCart }) {
+function CartFooter({
+  cart,
+  closeCart,
+}: {
+  cart: { price: number; quantity: number }[];
+  closeCart: () => void;
+}) {
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   const isOpen = useCartStore((state) => state.isOpen);
 
   // "loading" until the session check resolves; treated as signed-out for the
   // checkout click, and swapped automatically if a session turns up.
-  const [sessionState, setSessionState] = useState("loading");
+  const [sessionState, setSessionState] = useState<
+    "loading" | "signed-in" | "guest"
+  >("loading");
   const [showAuthChoice, setShowAuthChoice] = useState(false);
 
   useEffect(() => {
@@ -46,7 +55,7 @@ function CartFooter({ cart, closeCart }) {
 
   const showChoice = showAuthChoice && sessionState !== "signed-in";
 
-  function handleCheckoutClick(event) {
+  function handleCheckoutClick(event: MouseEvent) {
     if (sessionState !== "signed-in") {
       event.preventDefault();
       setShowAuthChoice(true);

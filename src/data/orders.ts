@@ -1,7 +1,18 @@
 "use server";
 import { createClient } from "@/lib/supabase/server";
+import type { ShippingInfo } from "@/types";
 
-export async function createOrder({ shippingInfo, paymentMethod, cart }) {
+type CartLine = { id: number; size: string | null; quantity: number };
+
+export async function createOrder({
+  shippingInfo,
+  paymentMethod,
+  cart,
+}: {
+  shippingInfo?: ShippingInfo | null;
+  paymentMethod: string;
+  cart: CartLine[];
+}): Promise<{ success: true; orderId: number }> {
   const supabase = await createClient();
 
   const {
@@ -51,7 +62,12 @@ export async function createOrder({ shippingInfo, paymentMethod, cart }) {
         .eq("id", user.id)
         .maybeSingle();
 
-      const accountUpdates = { id: user.id };
+      const accountUpdates = { id: user.id } as {
+        id: string;
+        phone?: string;
+        address?: string;
+        city?: string;
+      };
 
       if (!profile?.phone && phone) accountUpdates.phone = phone;
       if (!profile?.address && address) accountUpdates.address = address;
@@ -81,5 +97,5 @@ export async function createOrder({ shippingInfo, paymentMethod, cart }) {
     }
   }
 
-  return { success: true, orderId };
+  return { success: true, orderId: orderId as number };
 }

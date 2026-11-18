@@ -1,11 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
+import type { FormEvent } from "react";
 import Input from "../ui/Input";
 import useCheckoutStore from "./CheckoutStore";
 import GovernorateSelect from "./GovernorateSelect";
 import Button from "../ui/Button";
+import type { AccountProfile } from "@/types";
 
-function CheckoutForm({ profile }) {
+function CheckoutForm({ profile }: { profile: AccountProfile | null }) {
   const setShippingInfo = useCheckoutStore((state) => state.setShippingInfo);
   const router = useRouter();
 
@@ -20,7 +22,7 @@ function CheckoutForm({ profile }) {
     town: profile?.city ?? "",
   };
 
-  function handleSubmit(e) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     setShippingInfo(Object.fromEntries(formData));

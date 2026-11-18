@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-const titles = {
+const titles: Record<string, string> = {
   "/account": "Account",
   "/account/orders": "Orders",
   "/account/personal-info": "Personal details",
@@ -12,7 +12,7 @@ const titles = {
 
 function AccountTopBar() {
   const pathname = usePathname();
-  const title = titles[pathname];
+  const title = titles[pathname ?? ""];
 
   return (
     <div className="lg:hidden relative flex items-center justify-center py-4 border-b border-neutral-200">

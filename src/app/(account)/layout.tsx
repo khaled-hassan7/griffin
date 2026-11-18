@@ -1,11 +1,12 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import type { ReactNode } from "react";
 import { createClient } from "@/lib/supabase/server";
 import AccountNavList from "@/components/accounts/AccountNavList";
 import AccountTopBar from "@/components/accounts/AccountTopBar";
 import SignOutButton from "@/components/accounts/SignOutButton";
 
-async function layout({ children }) {
+async function layout({ children }: { children: ReactNode }) {
   const supabase = await createClient();
   const {
     data: { user },

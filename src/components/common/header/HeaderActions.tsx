@@ -9,7 +9,10 @@ import { useCartStore } from "@/components/cart/CartStore";
 function HeaderActions() {
   const toggleCart = useCartStore((state) => state.toggleCart);
   const cart = useCartStore((state) => state.cart);
-  const quantity = cart.reduce((total, item) => total + item.quantity, 0);
+  const quantity = cart.reduce(
+    (total: number, item: { quantity: number }) => total + item.quantity,
+    0,
+  );
 
   // Defaults to /signin while the session is loading.
   const [accountHref, setAccountHref] = useState("/signin");

@@ -1,22 +1,32 @@
 "use client";
 import { useState } from "react";
+import type { FormEvent } from "react";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
 import { updateProfile } from "@/data/accounts";
+import type { AccountProfile } from "@/types";
 
-function PersonalInfoForm({ profile, email }) {
+type Feedback = { type: "error" | "success"; message: string };
+
+function PersonalInfoForm({
+  profile,
+  email,
+}: {
+  profile: AccountProfile | null;
+  email?: string;
+}) {
   const initial = {
     fullName: profile?.full_name ?? "",
     phone: profile?.phone ?? "",
   };
   const [fullName, setFullName] = useState(initial.fullName);
   const [phone, setPhone] = useState(initial.phone);
-  const [feedback, setFeedback] = useState(null);
+  const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
   const isDirty = fullName !== initial.fullName || phone !== initial.phone;
 
-  async function handleSubmit(e) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setIsSaving(true);
     setFeedback(null);

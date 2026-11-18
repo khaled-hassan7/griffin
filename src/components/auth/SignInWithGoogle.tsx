@@ -3,9 +3,17 @@ import { useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import Button from "../ui/Button";
 
-function SignInWithGoogle({ next, className, onStart }) {
+function SignInWithGoogle({
+  next,
+  className,
+  onStart,
+}: {
+  next?: string;
+  className?: string;
+  onStart?: () => void;
+}) {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSignIn() {
     setIsLoading(true);

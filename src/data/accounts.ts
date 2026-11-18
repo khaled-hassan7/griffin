@@ -1,7 +1,14 @@
 "use server";
+import type { User } from "@supabase/supabase-js";
 import { createClient } from "@/lib/supabase/server";
+import type { AccountProfile, Order } from "@/types";
 
-export async function getAccount() {
+export type UpdateResult = { error?: string; success?: boolean };
+
+export async function getAccount(): Promise<{
+  user: User | null;
+  profile: AccountProfile | null;
+}> {
   const supabase = await createClient();
 
   const {
@@ -18,10 +25,10 @@ export async function getAccount() {
     .eq("id", user.id)
     .maybeSingle();
 
-  return { user, profile };
+  return { user, profile: profile as AccountProfile | null };
 }
 
-export async function getAccountOrders() {
+export async function getAccountOrders(): Promise<Order[]> {
   const supabase = await createClient();
 
   const {
@@ -43,10 +50,16 @@ export async function getAccountOrders() {
     throw error;
   }
 
-  return orders ?? [];
+  return (orders as Order[] | null) ?? [];
 }
 
-export async function updateProfile({ fullName, phone }) {
+export async function updateProfile({
+  fullName,
+  phone,
+}: {
+  fullName?: string;
+  phone?: string;
+}): Promise<UpdateResult> {
   const name = typeof fullName === "string" ? fullName.trim() : "";
   const trimmedPhone = typeof phone === "string" ? phone.trim() : "";
 
@@ -83,7 +96,13 @@ export async function updateProfile({ fullName, phone }) {
   return { success: true };
 }
 
-export async function updateAddress({ address, city }) {
+export async function updateAddress({
+  address,
+  city,
+}: {
+  address?: string;
+  city?: string;
+}): Promise<UpdateResult> {
   const trimmedAddress = typeof address === "string" ? address.trim() : "";
   const trimmedCity = typeof city === "string" ? city.trim() : "";
 

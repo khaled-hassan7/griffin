@@ -9,7 +9,7 @@ async function page() {
       <h2 className="hidden lg:block text-formHeading font-bold uppercase tracking-widest pb-10">
         Personal details
       </h2>
-      <PersonalInfoForm profile={profile} email={user.email} />
+      <PersonalInfoForm profile={profile} email={user!.email} />
     </div>
   );
 }
