@@ -4,56 +4,82 @@ import { createClient } from "@/lib/supabase/server";
 export async function createOrder({ shippingInfo, paymentMethod, cart }) {
   const supabase = await createClient();
 
-  const productIds = cart.map((item) => item.id);
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-  const { data: dbProducts, error: productsError } = await supabase
-    .from("products")
-    .select("id, price")
-    .in("id", productIds);
+  // Only the fields the checkout form actually sends; everything else
+  // (user_id, totalPrice, paymentMethod validation) is derived inside the
+  // create_order SQL function so a client can never override it.
+  const { firstName, lastName, phone, address, furtherInformation, governorate, town } =
+    shippingInfo ?? {};
 
-  if (productsError || !dbProducts) {
-    throw new Error("Failed to verify product prices.");
-  }
+  const { data: orderId, error: orderError } = await supabase.rpc(
+    "create_order",
+    {
+      p_shipping: {
+        firstName,
+        lastName,
+        phone,
+        address,
+        furtherInformation,
+        governorate,
+        town,
+      },
+      p_payment_method: paymentMethod,
+      p_cart: cart.map(({ id, size, quantity }) => ({
+        product_id: id,
+        size,
+        quantity,
+      })),
+    },
+  );
 
-  const priceMap = new Map(dbProducts.map((p) => [p.id, p.price]));
-
-  const calculatedTotalPrice = cart.reduce((sum, item) => {
-    const realPrice = priceMap.get(item.id) || 0;
-    return sum + realPrice * item.quantity;
-  }, 0);
-
-  const { data: order, error: orderError } = await supabase
-    .from("orders")
-    .insert({
-      ...shippingInfo,
-      paymentMethod: paymentMethod,
-      totalPrice: calculatedTotalPrice,
-    })
-    .select()
-    .single();
-
-  if (orderError || !order) {
+  if (orderError || orderId == null) {
     console.error("Failed to create order:", orderError);
     throw new Error(orderError?.message || "Failed to create order.");
   }
 
-  const orderItems = cart.map((item) => ({
-    product_id: item.id,
-    order_id: order.id,
-    price: priceMap.get(item.id),
-    size: item.size,
-    quantity: item.quantity,
-  }));
+  // Best-effort: pre-fill the signed-in user's account profile from the
+  // shipping info they just ordered with. Only fills EMPTY fields and must
+  // never block or roll back the order.
+  if (user) {
+    try {
+      const { data: profile } = await supabase
+        .from("accounts")
+        .select("phone, address, city")
+        .eq("id", user.id)
+        .maybeSingle();
 
-  const { error: itemsError } = await supabase
-    .from("order_items")
-    .insert(orderItems);
+      const accountUpdates = { id: user.id };
 
-  if (itemsError) {
-    console.error("Failed to create order items, rolling back:", itemsError);
-    await supabase.from("orders").delete().eq("id", order.id);
-    throw new Error("Failed to save order items. Transaction rolled back.");
+      if (!profile?.phone && phone) accountUpdates.phone = phone;
+      if (!profile?.address && address) accountUpdates.address = address;
+      if (!profile?.city && town) accountUpdates.city = town;
+
+      if (
+        accountUpdates.phone ||
+        accountUpdates.address ||
+        accountUpdates.city
+      ) {
+        const { error: accountError } = await supabase
+          .from("accounts")
+          .upsert(accountUpdates);
+
+        if (accountError) {
+          console.error(
+            "Skipped filling account details after order:",
+            accountError
+          );
+        }
+      }
+    } catch (accountError) {
+      console.error(
+        "Skipped filling account details after order:",
+        accountError
+      );
+    }
   }
 
-  return { success: true, orderId: order.id };
+  return { success: true, orderId };
 }

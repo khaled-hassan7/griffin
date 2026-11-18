@@ -5,9 +5,20 @@ import useCheckoutStore from "./CheckoutStore";
 import GovernorateSelect from "./GovernorateSelect";
 import Button from "../ui/Button";
 
-function CheckoutForm() {
+function CheckoutForm({ profile }) {
   const setShippingInfo = useCheckoutStore((state) => state.setShippingInfo);
   const router = useRouter();
+
+  // Signed-in users start from their saved account details; every field stays
+  // editable. Guests (profile === null) get the form blank, exactly as before.
+  const fullName = profile?.full_name?.trim() ?? "";
+  const prefilled = {
+    firstName: fullName.split(" ")[0],
+    lastName: fullName.split(" ").slice(1).join(" "),
+    phone: profile?.phone ?? "",
+    address: profile?.address ?? "",
+    town: profile?.city ?? "",
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -31,6 +42,7 @@ function CheckoutForm() {
               id="firstName"
               type="text"
               required
+              defaultValue={prefilled.firstName}
             />
             <Input
               label="last name"
@@ -38,6 +50,7 @@ function CheckoutForm() {
               id="lastName"
               type="text"
               required
+              defaultValue={prefilled.lastName}
             />
           </div>
           <div className="grid grid-cols-2 gap-5">
@@ -48,6 +61,7 @@ function CheckoutForm() {
               type="tel"
               inputMode="numeric"
               pattern="[0-9]*"
+              defaultValue={prefilled.phone}
             />
           </div>
         </section>
@@ -61,6 +75,7 @@ function CheckoutForm() {
               id="address"
               type="text"
               required
+              defaultValue={prefilled.address}
             />
             <Input
               label="further information (optional)"
@@ -72,7 +87,13 @@ function CheckoutForm() {
           <div className="grid  gap-5 pb-5 lg:grid-cols-2">
             <div className="grid grid-cols-2 gap-5">
               <GovernorateSelect name="governorate" />
-              <Input label="town" name="town" id="town" type="text" />
+              <Input
+                label="town"
+                name="town"
+                id="town"
+                type="text"
+                defaultValue={prefilled.town}
+              />
             </div>
           </div>
         </section>
