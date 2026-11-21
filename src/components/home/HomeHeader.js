@@ -8,7 +8,7 @@ import Logo from "../ui/Logo";
 import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 function HomeHeader() {
-  const isOnHero = useIntersectionObserver("hero");
+  const isOnHero = useIntersectionObserver("hero", 0, true);
   const isOnFooter = useIntersectionObserver("footer", 0.94);
   const colorIcon = isOnHero ? "text-white" : "text-primary";
   const [scrolling, setIsScrolled] = useState(false);
